@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      {% block title %}
+      <title>Registration page</title>
+      {% endblock %}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Add additional CSS in static file -->
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'css/register.css' %}">
+   </head>
+   <body>
+      <div class="registration-form">
+         <div class="action">
+            <button><a href="{% url 'login' %}">Sign up</a></button>
+            <button><a href="{% url 'register' %}">register</a></button>
+         </div>
+         <form action="" method="post">
+            {% csrf_token %}
+            <h1>Registeration</h1>
+            <div class="content">
+               <div class="input-field">
+                  <input type="username" name="username" placeholder="Username" >
+               </div>
+               <div class="input-field">
+                  <input type="f_name" name="f_name" placeholder="First name" >
+               </div>
+               <div class="input-field">
+                  <input type="l_name" name="l_name" placeholder="last name" >
+               </div>
+               <div class="input-field">
+                  <input type="email"name="email"placeholder="Email" autocomplete="nope">
+               </div>
+               <div class="input-field">
+                  <input type="password" name="password" placeholder="Password" autocomplete="new-password">
+               </div>
+               <button type="submit" class="btn">Register</button>
+               <p> go to <a href="{% url 'login' %}">Sign in</a></p>
+            </div>
+         </form>
+      </div>
+   </body>
+</html>
